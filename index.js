@@ -3,6 +3,7 @@ var arr = ["red", "green", "blue", "yellow"];
 var temp = [];
 var id = 0;
 var lev = 1;
+var started = false;
 
 
 function gameover() {
@@ -18,7 +19,11 @@ function gameover() {
 }
 
 $(document).keypress(function(event) {
-    nextSimulation();
+    console.log(started);
+    if (!started) {
+        started = true;
+        nextSimulation();
+    }
 });
 
 
@@ -42,9 +47,11 @@ $(".btn").click(function() {
         id++;
         if (id == temp.length) {
             $("#level-title").text("Well done !! press any key for next level ");
+            started = false;
         }
     } else {
         gameover();
+        started = false;
     }
 });
 
