@@ -27,6 +27,15 @@ $(document).keypress(function(event) {
 });
 
 
+$(document).touch(function(event) {
+    console.log(started);
+    if (!started) {
+        started = true;
+        nextSimulation();
+    }
+});
+
+
 
 function nextSimulation() {
     $("#level-title").text("Level " + lev);
